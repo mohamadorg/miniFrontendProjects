@@ -19,17 +19,32 @@ function resett(){
 }
 
 function startTimer(){
-    milliseconds += 10;
-    if(milliseconds == 1000){
+    milliseconds ++;
+    if(milliseconds == 100){
         milliseconds = 0;
         seconds ++;
         if(seconds == 60){
             seconds = 0;
-            minutes++;
+            minutes ++;
         }
     }
 
-    DOMminute.innerHTML = minutes;
-    DOMsecond.innerHTML = seconds;
-    DOMmillisecond.innerHTML = milliseconds;
+    //milli seconds
+    if(milliseconds<10){
+        DOMmillisecond.innerHTML = "0"+milliseconds;
+    }else if(milliseconds > 9){
+        DOMmillisecond.innerHTML = milliseconds;
+    }
+    //seconds
+    if(seconds<10){
+        DOMsecond.innerHTML = "0"+seconds;
+    }else if(seconds > 9){
+        DOMsecond.innerHTML = seconds;
+    }
+    //minutes
+    if(minutes<10){
+        DOMminute.innerHTML = "0"+minutes;
+    }else if(minutes > 9){
+        DOMminute.innerHTML = minutes;
+    }
 }
