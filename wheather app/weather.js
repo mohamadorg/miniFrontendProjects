@@ -27,17 +27,17 @@ window.addEventListener("load", () => {
           //set DOM elements
           tempratureDegree.textContent = temp;
           tempratureDescription.textContent = data.weather[0].description;
-          locationTimezone.textContent = data.sys.country;
+          locationTimezone.textContent = data.sys.country + " / "+ data.name;
 
           // formula for Farenheit
           let Farenheit = (temp*9) / 5+32;
           //change temprature celsius / Farenheit
           temprature.addEventListener('click' , ()=>{
-            if(tempratureSpan.textContent === "C"){
-                tempratureSpan.textContent ="F" ;
+            if(tempratureSpan.textContent === "°C"){
+                tempratureSpan.textContent = "°F" ;
                 tempratureDegree.textContent = Math.floor(Farenheit);
             }else{
-                tempratureSpan.textContent="C" ;
+                tempratureSpan.textContent = "°C" ;
                 tempratureDegree.textContent = temp;
             }
           })
