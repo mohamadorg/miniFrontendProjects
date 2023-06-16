@@ -7,6 +7,7 @@ window.addEventListener("load", () => {
   let locationTimezone = document.querySelector(".location-timezone");
   let temprature = document.querySelector(".temprature");
   let tempratureSpan = document.querySelector(".temprature span");
+  let iconDom = document.querySelector(".location img");
 
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -31,6 +32,10 @@ window.addEventListener("load", () => {
 
           // formula for Farenheit
           let Farenheit = (temp*9) / 5+32;
+          // Icon 
+          const iconCode = data.weather[0].icon;
+          const iconUrl = `http://openweathermap.org/img/wn/${iconCode}@2x.png`;
+          iconDom.src = iconUrl;
           //change temprature celsius / Farenheit
           temprature.addEventListener('click' , ()=>{
             if(tempratureSpan.textContent === "°C"){
